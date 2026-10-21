@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estate Planning & Family Legacy | Farmers & Trustees Trust</title>
+<meta name="description" content="Family asset documentation, beneficiary registration, estate planning support, farm succession planning and legacy planning.">
+<meta name="theme-color" content="#1f5c3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main id="main">
+<div class="page-head"><div class="wrap"><span class="kicker">Estate planning &amp; family legacy</span><h1>Protect what your family has built</h1><p>Help to record family assets, name beneficiaries and plan how land, farms and businesses pass to the next generation.</p></div></div>
+<section><div class="wrap split">
+<div><h2>Our services</h2><div class="grid g2">
+<div class="card"><h3>Family Asset Documentation</h3><p>A clear list of land, houses, livestock, equipment, accounts and businesses.</p></div>
+<div class="card"><h3>Beneficiary Registration</h3><p>Record who should benefit and how to reach them.</p></div>
+<div class="card"><h3>Estate Planning Support</h3><p>Guidance on wills and next steps, with referral to qualified legal practitioners.</p></div>
+<div class="card"><h3>Farm Succession Planning</h3><p>Plan who will run the farm and how it stays productive.</p></div>
+<div class="card"><h3>Legacy Planning</h3><p>Education funds, family meetings and long-term wishes.</p></div></div></div>
+<img src="assets/img/family.jpg" alt="Parents sitting with their young child outdoors" loading="lazy"></div></section>
+<section class="alt"><div class="wrap">
+<p class="note">The Trust provides guidance and record keeping. It does not replace a lawyer. Wills and legal documents should be prepared or reviewed by a qualified legal practitioner. Final legal wording for this service will be provided by the Trust.</p>
+<div class="tabs"><button data-tab="ep" class="on">Estate planning registration</button><button data-tab="inv">Family asset inventory</button><button data-tab="ben">Beneficiary registration</button></div>
+<div class="panel on" id="ep"><form class="f" id="estateForm" data-store="estate" data-prefix="EST" style="max-width:760px" novalidate><h3>Estate planning registration</h3>
+<div class="fr c2"><div class="field"><label for="f-name-409">Full name</label><input id="f-name-409" name="name" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-nrc-5708">NRC number</label><input id="f-nrc-5708" name="nrc" type="text" required><div class="err">This field is required.</div></div></div>
+<div class="fr c2"><div class="field"><label for="f-phone-5202">Phone number</label><input id="f-phone-5202" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div><div class="field"><label for="f-email-3311">Email <span class="opt">(optional)</span></label><input id="f-email-3311" name="email" type="email"><div class="err">Enter a valid email address.</div></div></div>
+<div class="fr c2"><div class="field"><label for="f-marital-4963">Marital status</label><select id="f-marital-4963" name="marital" required><option value="">Select...</option><option>Single</option><option>Married</option><option>Widowed</option><option>Divorced</option></select><div class="err">Please choose an option.</div></div><div class="field"><label for="f-dependants-1518">Number of dependants <span class="opt">(optional)</span></label><input id="f-dependants-1518" name="dependants" type="number" min="0" step="any" inputmode="decimal"><div class="err">Enter a valid amount.</div></div></div>
+<div class="field"><label for="f-service-7890">Service needed</label><select id="f-service-7890" name="service" required><option value="">Select...</option><option>Estate Planning Support</option><option>Farm Succession Planning</option><option>Legacy Planning</option><option>Family Asset Documentation</option><option>Not sure yet</option></select><div class="err">Please choose an option.</div></div>
+<div class="fr c2"><div class="field"><label for="f-hasWill-1531">Do you have a will?</label><select id="f-hasWill-1531" name="hasWill" required><option value="">Select...</option><option>Yes</option><option>No</option><option>Not sure</option></select><div class="err">Please choose an option.</div></div><div class="field"><label for="f-contactTime-1668">Preferred contact time</label><select id="f-contactTime-1668" name="contactTime" required><option value="">Select...</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select><div class="err">Please choose an option.</div></div></div>
+<div class="field"><label for="f-notes-2825">Anything we should know <span class="opt">(optional)</span></label><textarea id="f-notes-2825" name="notes"></textarea><div class="err">This field is required.</div></div>
+<button class="btn" type="submit">Register for estate planning</button></form><div class="confirm" id="estDone"></div></div>
+<div class="panel" id="inv"><form class="f" id="assetForm" data-store="assets" data-prefix="AST" novalidate><h3>Family asset inventory</h3>
+<div class="fr c2"><div class="field"><label for="f-owner-4971">Owner full name</label><input id="f-owner-4971" name="owner" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-phone-4206">Phone number</label><input id="f-phone-4206" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div></div>
+<p class="muted">Add each asset on its own row. Values are estimates in Kwacha.</p>
+<div class="rows" id="assetRows" data-name="items"><div class="row">
+<div><label>Asset type</label><select data-k="type" required><option value="">Select...</option><option>Land / plot</option><option>House</option><option>Farm</option><option>Livestock</option><option>Vehicle</option><option>Equipment</option><option>Bank account</option><option>Business</option><option>Other</option></select></div>
+<div><label>Description</label><input data-k="desc" required placeholder="e.g. 5 ha farm, Chongwe"></div>
+<div><label>Title or document no.</label><input data-k="doc"></div>
+<div><label>Estimated value (K)</label><input data-k="value" type="number" min="0"></div>
+<button type="button" class="rm" aria-label="Remove row">Remove</button></div></div>
+<button type="button" class="btn line sm" data-add-row="#assetRows">+ Add another asset</button>
+<div style="margin-top:16px"><button class="btn" type="submit">Save asset inventory</button></div></form><div class="confirm" id="astDone"></div></div>
+<div class="panel" id="ben"><form class="f" id="benForm" data-store="beneficiaries" data-prefix="BEN" novalidate><h3>Beneficiary registration</h3>
+<div class="fr c2"><div class="field"><label for="f-owner-4543">Your full name</label><input id="f-owner-4543" name="owner" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-phone-9469">Phone number</label><input id="f-phone-9469" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div></div>
+<div class="rows" id="benRows" data-name="people"><div class="row">
+<div><label>Beneficiary name</label><input data-k="name" required></div>
+<div><label>Relationship</label><select data-k="relation" required><option value="">Select...</option><option>Spouse</option><option>Child</option><option>Parent</option><option>Sibling</option><option>Grandchild</option><option>Other relative</option><option>Other</option></select></div>
+<div><label>Phone</label><input data-k="phone" type="tel"></div>
+<div><label>Share or notes</label><input data-k="share" placeholder="e.g. farm, 50%"></div>
+<button type="button" class="rm" aria-label="Remove row">Remove</button></div></div>
+<button type="button" class="btn line sm" data-add-row="#benRows">+ Add another beneficiary</button>
+<div style="margin-top:16px"><button class="btn" type="submit">Save beneficiaries</button></div></form><div class="confirm" id="benDone"></div></div>
+</div></section>
+
+</main>
+<script src="assets/js/app.js"></script>
+
+<script>
+FTT.hooks.assetForm={after:function(r){var t=r.items.reduce(function(s,i){return s+(Number(i.value)||0)},0);return '<strong>Asset inventory saved.</strong> Reference <b>'+FTT.esc(r.id)+'</b>. '+r.items.length+' asset(s) recorded, estimated total '+FTT.money(t)+'. (Demo: saved in this browser only.)'}};
+FTT.hooks.benForm={after:function(r){return '<strong>Beneficiaries saved.</strong> Reference <b>'+FTT.esc(r.id)+'</b>. '+r.people.length+' beneficiary(ies) recorded.'}};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard (Demo) | Farmers & Trustees Trust</title>
+<meta name="description" content="Demo staff dashboard for Farmers & Trustees Trust.">
+<meta name="theme-color" content="#1f5c3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main id="main">
+<div class="page-head"><div class="wrap"><span class="kicker">Staff area</span><h1>Admin dashboard (demo)</h1><p>This is a demonstration. It shows submissions saved in this browser plus a few sample records. The real system will need secure staff logins and a database.</p></div></div>
+<section id="gate"><div class="wrap"><form class="f" id="gateForm" style="max-width:420px" novalidate><h3>Staff sign in (demo)</h3><p class="note">Demo passcode: <b>ftt-demo</b></p>
+<div class="field"><label for="pass">Passcode</label><input id="pass" type="password" required autocomplete="off"><div class="err">Incorrect passcode.</div></div><button class="btn">Open dashboard</button></form></div></section>
+<section id="adminApp" hidden><div class="wrap">
+<div class="btns no-print" style="margin:0 0 14px;justify-content:space-between;align-items:center"><span class="muted" id="adminNote"></span><span><button class="btn sm line" id="exportAll" type="button">Export all (JSON)</button> <button class="btn sm line" id="clearDemo" type="button">Clear demo submissions</button> <button class="btn sm line" id="signOut" type="button">Sign out</button></span></div>
+<div class="tabs" id="atabs"><button data-tab="reports" class="on">Reports &amp; analytics</button><button data-tab="members">Member management</button><button data-tab="users">User management</button><button data-tab="jobs">Job applications</button><button data-tab="startups">Startup applications</button><button data-tab="investors">Investor applications</button><button data-tab="estate">Estate planning records</button><button data-tab="events">Events &amp; attendance</button><button data-tab="other">Other submissions</button><button data-tab="docs">Document management</button></div>
+<div class="panel on" id="reports"></div><div class="panel" id="members"></div><div class="panel" id="users"></div><div class="panel" id="jobs"></div><div class="panel" id="startups"></div><div class="panel" id="investors"></div><div class="panel" id="estate"></div><div class="panel" id="events"></div><div class="panel" id="other"></div><div class="panel" id="docs"></div>
+</div></section>
+
+</main>
+<script src="assets/js/app.js"></script>
+
+<script>
+(function(){var S=FTT.S,esc=FTT.esc,SE=FTT.SEED;
+var EXTRA={jobApps:[{id:"SAMPLE-A1",name:"Sample Applicant",position:"Agronomy Intern",qualification:"Diploma",email:"applicant@example.com",phone:"0970000003",created:"2026-10-01T08:00:00Z",status:"New",seed:true}],
+ estate:[{id:"SAMPLE-E1",name:"Sample Estate Client",service:"Farm Succession Planning",hasWill:"No",phone:"0970000004",created:"2026-10-05T08:00:00Z",status:"New",seed:true}]};
+function data(k){return (SE[k]&&k!=="jobs"&&k!=="events"?SE[k]:[]).concat(EXTRA[k]||[]).concat(S.all(k))}
+function d(x){return x?new Date(x).toLocaleDateString("en-GB"):""}
+function cell(r,c){var v=r[c];if(Array.isArray(v))v=v.length+" item(s)";if(c==="created")v=d(v);if(c==="amount"||c==="min"||c==="max")v=v?FTT.money(v):"";return esc(v)}
+function table(k,cols,heads,actions){var a=data(k);return '<div class="scroll"><table class="tbl"><thead><tr>'+heads.map(function(h){return'<th>'+h+'</th>'}).join("")+(actions?'<th>Action</th>':'')+'</tr></thead><tbody>'+
+ (a.length?a.slice().reverse().map(function(r){return '<tr>'+cols.map(function(c){return '<td>'+cell(r,c)+'</td>'}).join("").replace('<td>','<td>'+(r.seed?'<span class="tag gold">Sample</span> ':''))+(actions?'<td>'+actions(r,k)+'</td>':'')+'</tr>'}).join(""):'<tr><td colspan="'+(cols.length+1)+'">No records yet.</td></tr>')+'</tbody></table></div>'+
+ '<div class="btns" style="margin-top:8px"><button class="btn sm line" data-csv="'+k+'" type="button">Download CSV</button></div>'}
+function statusBtn(r,k){if(r.seed)return '<span class="muted">Sample</span>';var st=r.status==="Active"?"Approved":r.status;return '<select aria-label="Status" data-status="'+k+'|'+esc(r.id)+'">'+["New","Pending","Approved","Declined"].map(function(o){return '<option'+(st===o?" selected":"")+'>'+o+'</option>'}).join("")+'</select>'}
+function bars(rows){var max=Math.max.apply(null,rows.map(function(r){return r[1]}).concat([1]));return '<div class="bars">'+rows.map(function(r){return '<div class="bar"><span>'+esc(r[0])+'</span><div class="track"><div class="fill" style="width:'+(r[1]/max*100)+'%"></div></div><b>'+r[1]+'</b></div>'}).join("")+'</div>'}
+function countBy(a,f){var o={};a.forEach(function(r){var v=r[f]||"Not given";o[v]=(o[v]||0)+1});return Object.keys(o).map(function(k){return[k,o[k]]})}
+var KEYS=["members","jobApps","startups","investors","estate","assets","beneficiaries","eventRegs","contacts","produce","produceRequests","farmers","buyers","advisory","employers","candidates"];
+function n(k){return S.all(k).length}
+function render(){
+ var mem=data("members");
+ document.getElementById("adminNote").textContent="Showing "+KEYS.reduce(function(s,k){return s+n(k)},0)+" submission(s) from this browser, plus sample records.";
+ document.getElementById("reports").innerHTML='<div class="grid g4" style="margin-bottom:18px"><div class="stat"><b>'+mem.length+'</b>Members</div><div class="stat"><b>'+data("jobApps").length+'</b>Job applications</div><div class="stat"><b>'+data("startups").length+'</b>Startups</div><div class="stat"><b>'+data("estate").length+'</b>Estate clients</div></div>'+
+ '<div class="grid g2"><div class="card"><h3>Members by category</h3>'+bars(countBy(mem,"category"))+'</div><div class="card"><h3>Submissions from this browser, by service</h3>'+bars([["Membership",n("members")],["Agriculture",n("produce")+n("produceRequests")+n("farmers")+n("buyers")+n("advisory")],["Estate planning",n("estate")+n("assets")+n("beneficiaries")],["TalentLink",n("jobApps")+n("candidates")+n("employers")],["Enterprise",n("startups")+n("investors")],["Events",n("eventRegs")],["Contact",n("contacts")]])+'</div>'+
+ '<div class="card"><h3>Members by province</h3>'+bars(countBy(mem,"province"))+'</div><div class="card"><h3>Startups by stage</h3>'+bars(["Idea","Early revenue","Growth"].map(function(s){return[s,data("startups").filter(function(x){return x.stage===s}).length]}))+'</div></div>';
+ document.getElementById("members").innerHTML='<h2>Member management</h2>'+table("members",["id","fullName","category","phone","district","created","status"],["Membership no.","Name","Category","Phone","District","Joined","Status"],statusBtn);
+ var users=[].concat(mem.map(function(m){return{t:"Member",n:m.fullName,c:m.phone,id:m.id,seed:m.seed}}),data("employers").map(function(m){return{t:"Employer",n:m.org,c:m.phone,id:m.id}}),data("investors").map(function(m){return{t:"Investor",n:m.name,c:m.phone||"",id:m.id,seed:m.seed}}),data("candidates").map(function(m){return{t:"Candidate",n:m.name,c:m.phone,id:m.id}}),data("farmers").map(function(m){return{t:"Farmer",n:m.name,c:m.phone,id:m.id}}),data("buyers").map(function(m){return{t:"Buyer",n:m.business,c:m.phone,id:m.id}}));
+ document.getElementById("users").innerHTML='<h2>User management</h2><p class="muted">Everyone registered on the platform. In production each user will have a login and a role.</p><div class="scroll"><table class="tbl"><thead><tr><th>Type</th><th>Name</th><th>Phone</th><th>Reference</th></tr></thead><tbody>'+users.map(function(u){return '<tr><td>'+(u.seed?'<span class="tag gold">Sample</span> ':'')+esc(u.t)+'</td><td>'+esc(u.n)+'</td><td>'+esc(u.c)+'</td><td>'+esc(u.id)+'</td></tr>'}).join("")+'</tbody></table></div>';
+ document.getElementById("jobs").innerHTML='<h2>Job applications</h2>'+table("jobApps",["id","name","position","qualification","email","cv","created","status"],["Ref","Name","Position","Qualification","Email","CV file","Date","Status"],statusBtn)+'<h3 style="margin-top:22px">Employers</h3>'+table("employers",["id","org","sector","contact","phone","vacancy","created"],["Ref","Organisation","Sector","Contact","Phone","Vacancy","Date"]);
+ document.getElementById("startups").innerHTML='<h2>Startup applications</h2>'+table("startups",["id","bizName","founder","sector","stage","amount","pitchDeck","created","status"],["Ref","Business","Founder","Sector","Stage","Requested","Pitch deck","Date","Status"],statusBtn);
+ document.getElementById("investors").innerHTML='<h2>Investor applications</h2>'+table("investors",["id","name","sectors","stage","min","max","email","created","status"],["Ref","Name","Interests","Stage","Min","Max","Email","Date","Status"],statusBtn);
+ document.getElementById("estate").innerHTML='<h2>Estate planning records</h2><p class="note">Sensitive personal data. In production this must be access-controlled and encrypted.</p>'+table("estate",["id","name","service","hasWill","phone","created","status"],["Ref","Name","Service","Has will","Phone","Date","Status"],statusBtn)+
+  '<h3 style="margin-top:22px">Family asset inventories</h3>'+table("assets",["id","owner","phone","items","created"],["Ref","Owner","Phone","Assets","Date"],function(r){return '<button class="btn sm line" data-view="assets|'+esc(r.id)+'" type="button">View</button>'})+
+  '<h3 style="margin-top:22px">Beneficiary registrations</h3>'+table("beneficiaries",["id","owner","phone","people","created"],["Ref","Registered by","Phone","Beneficiaries","Date"],function(r){return '<button class="btn sm line" data-view="beneficiaries|'+esc(r.id)+'" type="button">View</button>'})+'<div id="viewBox" style="margin-top:14px"></div>';
+ document.getElementById("events").innerHTML='<h2>Events and attendance</h2><p class="muted">Tick "Attended" after an event. The participant can then generate a certificate on the Training &amp; Events page.</p>'+table("eventRegs",["id","name","eventTitle","phone","role","created"],["Ref","Name","Event","Phone","Role","Registered"],function(r){return '<label class="check"><input type="checkbox" data-att="'+esc(r.id)+'"'+(r.attended?" checked":"")+'> Attended</label>'});
+ document.getElementById("other").innerHTML='<h2>Other submissions</h2><h3>Contact messages</h3>'+table("contacts",["id","name","phone","subject","message","created"],["Ref","Name","Phone","Subject","Message","Date"])+
+  '<h3 style="margin-top:22px">Produce listings</h3>'+table("produce",["id","farmer","crop","qty","price","location"],["Ref","Farmer","Crop","Quantity","Price","Location"])+
+  '<h3 style="margin-top:22px">Produce requests</h3>'+table("produceRequests",["id","buyer","crop","qty","location","created"],["Ref","Buyer","Product","Quantity","Location","Date"])+
+  '<h3 style="margin-top:22px">Farmer registrations</h3>'+table("farmers",["id","name","district","crops","ftype","created"],["Ref","Name","District","Crops","Type","Date"])+
+  '<h3 style="margin-top:22px">Buyer registrations</h3>'+table("buyers",["id","business","contact","products","location","created"],["Ref","Business","Contact","Products","Location","Date"])+
+  '<h3 style="margin-top:22px">Advisory requests</h3>'+table("advisory",["id","name","topic","district","question","created"],["Ref","Name","Topic","District","Question","Date"])+
+  '<h3 style="margin-top:22px">Candidate profiles</h3>'+table("candidates",["id","name","status2","ptype","skills","created"],["Ref","Name","Status","Looking for","Skills","Date"]);
+ var files=[].concat(S.all("jobApps").filter(function(a){return a.cv}).map(function(a){return["CV",a.cv,a.name,a.id]}),S.all("startups").filter(function(a){return a.pitchDeck}).map(function(a){return["Pitch deck",a.pitchDeck,a.bizName,a.id]}));
+ document.getElementById("docs").innerHTML='<h2>Document management</h2><h3>Published forms</h3><div class="scroll"><table class="tbl"><thead><tr><th>Document</th><th>Status</th><th>File</th></tr></thead><tbody>'+
+  [["Membership form","Published","assets/docs/FTT-Membership-Form.pdf"],["Internship application form","Published","assets/docs/FTT-Internship-Application-Form.pdf"],["Estate planning forms","Published","assets/docs/FTT-Estate-Planning-Forms.pdf"],["Business templates","Not yet provided",""],["Training materials","Not yet provided",""]].map(function(x){return '<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td>'+(x[2]?'<a href="'+x[2]+'" target="_blank">Open</a>':'')+'</td></tr>'}).join("")+'</tbody></table></div>'+
+  '<h3 style="margin-top:22px">Files attached to applications</h3><p class="muted">The demo records file names only. Production needs secure file storage.</p><div class="scroll"><table class="tbl"><thead><tr><th>Type</th><th>File name</th><th>From</th><th>Ref</th></tr></thead><tbody>'+(files.length?files.map(function(f){return '<tr><td>'+f.map(esc).join('</td><td>')+'</td></tr>'}).join(""):'<tr><td colspan="4">No files attached yet.</td></tr>')+'</tbody></table></div>';
+}
+function csv(k){var a=data(k);if(!a.length){FTT.toast("Nothing to export");return}var cols=Object.keys(a.reduce(function(o,r){Object.keys(r).forEach(function(c){o[c]=1});return o},{}));
+ var t=[cols.join(",")].concat(a.map(function(r){return cols.map(function(c){var v=r[c];if(typeof v==="object")v=JSON.stringify(v);return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}).join(",")})).join("\n");
+ var l=document.createElement("a");l.href=URL.createObjectURL(new Blob([t],{type:"text/csv"}));l.download="ftt-"+k+".csv";l.click()}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-csv]");if(b)csv(b.dataset.csv);
+ var v=e.target.closest("[data-view]");if(v){var p=v.dataset.view.split("|"),r=data(p[0]).filter(function(x){return x.id===p[1]})[0],list=r.items||r.people||[];
+  document.getElementById("viewBox").innerHTML='<div class="card"><h3>'+esc(r.id)+' . '+esc(r.owner)+'</h3><div class="scroll"><table class="tbl"><thead><tr>'+Object.keys(list[0]||{}).map(function(c){return'<th>'+esc(c)+'</th>'}).join("")+'</tr></thead><tbody>'+list.map(function(i){return '<tr>'+Object.keys(i).map(function(c){return '<td>'+esc(c==="value"&&i[c]?FTT.money(i[c]):i[c])+'</td>'}).join("")+'</tr>'}).join("")+'</tbody></table></div></div>'}});
+document.addEventListener("change",function(e){var s=e.target.dataset.status,a=e.target.dataset.att;
+ if(s){var p=s.split("|"),arr=S.all(p[0]);arr.forEach(function(r){if(r.id===p[1])r.status=e.target.value});S.set(p[0],arr);FTT.toast("Status updated")}
+ if(a){var arr2=S.all("eventRegs");arr2.forEach(function(r){if(r.id===a)r.attended=e.target.checked});S.set("eventRegs",arr2);FTT.toast(e.target.checked?"Marked as attended":"Attendance removed")}});
+function open(){document.getElementById("gate").hidden=true;document.getElementById("adminApp").hidden=false;render()}
+document.getElementById("gateForm").onsubmit=function(e){e.preventDefault();var p=document.getElementById("pass");if(p.value==="ftt-demo"){sessionStorage.setItem("ftt_admin","1");open()}else p.closest(".field").classList.add("bad")};
+document.getElementById("signOut").onclick=function(){sessionStorage.removeItem("ftt_admin");location.reload()};
+document.getElementById("clearDemo").onclick=function(){if(!confirm("Remove all demo submissions saved in this browser?"))return;Object.keys(localStorage).filter(function(k){return k.indexOf("ftt_")===0}).forEach(function(k){localStorage.removeItem(k)});render();FTT.toast("Demo submissions cleared")};
+document.getElementById("exportAll").onclick=function(){var o={};Object.keys(localStorage).filter(function(k){return k.indexOf("ftt_")===0}).forEach(function(k){o[k]=JSON.parse(localStorage.getItem(k))});var l=document.createElement("a");l.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:"application/json"}));l.download="ftt-demo-data.json";l.click()};
+if(sessionStorage.getItem("ftt_admin"))open();
+})();
+</script>
+
+</body>
+</html>

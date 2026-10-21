@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Us | Farmers & Trustees Trust</title>
+<meta name="description" content="Call, WhatsApp or email Farmers & Trustees Trust in Lusaka, Zambia.">
+<meta name="theme-color" content="#1f5c3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main id="main">
+<div class="page-head"><div class="wrap"><span class="kicker">Contact</span><h1>Talk to us</h1><p>Call, WhatsApp or email us. You can also send a message with the form below.</p></div></div>
+<section><div class="wrap split" style="align-items:start">
+<div>
+<div class="grid g2" style="margin-bottom:18px">
+<div class="card"><h3>Phone</h3><p><a href="tel:+260975963056">0975 963 056</a></p></div>
+<div class="card"><h3>WhatsApp</h3><p><a href="https://wa.me/260975963056" target="_blank" rel="noopener">Chat on WhatsApp</a></p></div>
+<div class="card"><h3>Email</h3><p><a href="mailto:mgchipashi03@gmail.com">mgchipashi03@gmail.com</a></p></div>
+<div class="card"><h3>Location</h3><p>Lusaka, Zambia</p></div></div>
+<iframe class="map" title="Map of Lusaka, Zambia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Lusaka,Zambia&z=12&output=embed"></iframe>
+</div>
+<div><form class="f" id="contactForm" data-store="contacts" data-prefix="MSG" novalidate><h3>Send us a message</h3>
+<div class="fr c2"><div class="field"><label for="f-name-744">Full name</label><input id="f-name-744" name="name" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-phone-4953">Phone number</label><input id="f-phone-4953" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div></div>
+<div class="field"><label for="f-email-9133">Email <span class="opt">(optional)</span></label><input id="f-email-9133" name="email" type="email"><div class="err">Enter a valid email address.</div></div>
+<div class="field"><label for="f-subject-6470">Subject</label><select id="f-subject-6470" name="subject" required><option value="">Select...</option><option>Membership</option><option>Agriculture and market access</option><option>Estate planning</option><option>TalentLink jobs and internships</option><option>Enterprise and investment</option><option>Training and events</option><option>Other</option></select><div class="err">Please choose an option.</div></div>
+<div class="field"><label for="f-message-7405">Message</label><textarea id="f-message-7405" name="message" required></textarea><div class="err">This field is required.</div></div>
+<div class="btns" style="margin-top:0"><button class="btn" type="submit">Send message</button><button class="btn line" type="button" id="toWa">Send on WhatsApp instead</button></div>
+</form><div class="confirm" id="msgDone"></div></div>
+</div></section>
+
+</main>
+<script src="assets/js/app.js"></script>
+
+<script>
+document.getElementById("toWa").onclick=function(){var f=document.getElementById("contactForm");if(!FTT.validate(f))return;var d=FTT.collect(f);
+var t="Hello Farmers & Trustees Trust.\nName: "+d.name+"\nPhone: "+d.phone+(d.email?"\nEmail: "+d.email:"")+"\nSubject: "+d.subject+"\n\n"+d.message;
+window.open("https://wa.me/"+FTT.WA+"?text="+encodeURIComponent(t),"_blank","noopener")};
+FTT.hooks.contactForm={after:function(r){return '<strong>Thank you, '+FTT.esc(r.name)+'. Your message has been received.</strong><br>Reference <b>'+FTT.esc(r.id)+'</b>. For urgent matters please call or WhatsApp 0975 963 056.'}};
+</script>
+
+</body>
+</html>

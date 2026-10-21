@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farmers & Trustees Trust | Agriculture, Family Legacy, Jobs and Enterprise in Zambia</title>
+<meta name="description" content="A Lusaka-based trust supporting farmers, families, students, startups and investors with market access, estate planning, recruitment and enterprise support.">
+<meta name="theme-color" content="#1f5c3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<main id="main">
+<section class="hero"><div class="wrap">
+<div class="hero-text">
+<span class="kicker">Farmers &amp; Trustees Trust . Lusaka, Zambia</span>
+<h1>Empowering Farmers. Protecting Families. Building Generations.</h1>
+<p>A trusted platform providing agricultural support, estate planning services, recruitment opportunities, startup development, and investor connections.</p>
+<div class="btns"><a class="btn gold" href="membership.html">Become a Member</a><a class="btn line" style="color:#fff;border-color:#fff" href="talentlink.html#apply">Apply Now</a><a class="btn line" style="color:#fff;border-color:#9fbfaa" href="contact.html">Contact Us</a></div>
+</div>
+<div class="hero-img"><img src="assets/img/farmer-produce.jpg" alt="A farmer carrying a bunch of fresh bananas at a market" width="667" height="1000"></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>One place for the people who build our communities</h2>
+<p class="lead">Farmers, families, students, businesses, startups, investors, employers and development partners can all find a starting point here. Choose the area that fits you.</p>
+<div class="grid g3" style="margin-top:22px">
+<a class="card photo" href="agriculture.html" style="text-decoration:none;color:inherit"><img src="assets/img/rural-road.jpg" alt="A farmer walking along a rural road" loading="lazy"><div class="in"><h3>Agriculture &amp; Market Access</h3><p>List your produce, find buyers and input suppliers, and get farm advice.</p></div></a>
+<a class="card photo" href="estate.html" style="text-decoration:none;color:inherit"><img src="assets/img/family.jpg" alt="Parents sitting with their young child" loading="lazy"><div class="in"><h3>Estate Planning &amp; Family Legacy</h3><p>Record family assets, register beneficiaries and plan farm succession.</p></div></a>
+<a class="card photo" href="talentlink.html" style="text-decoration:none;color:inherit"><img src="assets/img/talent.jpg" alt="Two young professionals working at a computer" loading="lazy"><div class="in"><h3>TalentLink Recruitment Hub</h3><p>Jobs, internships and attachments for students and graduates. Employers can register to post roles.</p></div></a>
+<a class="card photo" href="enterprise.html" style="text-decoration:none;color:inherit"><img src="assets/img/enterprise.jpg" alt="Three women discussing business plans around a laptop" loading="lazy"><div class="in"><h3>Enterprise &amp; Investment Connect</h3><p>Startups can request funding. Investors can find projects that match their interests.</p></div></a>
+<a class="card photo" href="events.html" style="text-decoration:none;color:inherit"><img src="assets/img/community.jpg" alt="A woman and children walking through a village" loading="lazy"><div class="in"><h3>Training &amp; Events</h3><p>Workshops, seminars, agricultural training and estate planning clinics.</p></div></a>
+<a class="card photo" href="membership.html" style="text-decoration:none;color:inherit"><img src="assets/img/about.jpg" alt="A smiling woman" loading="lazy"><div class="in"><h3>Membership</h3><p>Join as a Student, Farmer, Ordinary, Associate, Corporate or Honorary Member.</p></div></a>
+</div></div></section>
+
+<section class="alt"><div class="wrap split">
+<div><span class="kicker">How it works</span><h2>Simple steps to get started</h2>
+<ol style="padding-left:1.2em"><li><b>Register</b> as a member in the category that fits you.</li><li><b>Receive</b> your membership number and certificate.</li><li><b>Use the services</b>: list produce, apply for jobs, request estate planning support or seek funding.</li><li><b>Attend</b> trainings and clinics to learn and connect.</li></ol>
+<a class="btn" href="membership.html">Register now</a></div>
+<div class="card"><h3>Need help in person?</h3><p>Call or WhatsApp us on <a href="tel:+260975963056">0975 963 056</a>, or send an email to <a href="mailto:mgchipashi03@gmail.com">mgchipashi03@gmail.com</a>. We are based in Lusaka.</p><p class="muted">If you do not have internet access often, a family member or friend can register on your behalf.</p><a class="btn line sm" href="contact.html">All contact options</a></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="grid g2">
+<div class="card"><h3>Upcoming training and events</h3><div id="home-events"></div><a href="events.html">See all events</a></div>
+<div class="card"><h3>Coming in later phases</h3><p>A mobile app, an agricultural assistant, a loan and grant application portal, a digital marketplace and e-learning are planned for later phases.</p><a href="roadmap.html">View the roadmap</a></div>
+</div></div></section>
+
+</main>
+<script src="assets/js/app.js"></script>
+
+<script>
+document.getElementById("home-events").innerHTML="<ul class='ticks'>"+FTT.SEED.events.slice(0,3).map(function(e){return "<li><b>"+FTT.esc(e.title)+"</b><br><span class='muted'>"+new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})+", "+FTT.esc(e.venue)+"</span></li>"}).join("")+"</ul>";
+</script>
+
+</body>
+</html>
