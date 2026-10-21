@@ -5,27 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Training & Events | Farmers & Trustees Trust</title>
 <meta name="description" content="Workshops, seminars, agricultural training and estate planning clinics. Register online and get your attendance certificate.">
-<meta name="theme-color" content="#0F3D2E">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#1f5c3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <main id="main">
 <div class="page-head"><div class="wrap"><span class="kicker">Training &amp; events</span><h1>Learn, meet and grow</h1><p>Workshops, seminars, agricultural training and estate planning clinics in Lusaka and online.</p></div></div>
-<section><div class="wrap"><div class="sec-head split2"><div><span class="kicker">Calendar</span><h2>Upcoming events</h2></div><p class="lead">Workshops, seminars, agricultural training and estate planning clinics. Dates and venues are provisional and will be confirmed by the Trust.</p></div><ul class="ev-list" id="evList"></ul></div></section>
+<section><div class="wrap"><h2>Upcoming events</h2><p class="note">Dates and venues are provisional and will be confirmed by the Trust.</p><div class="grid g2" id="evList"></div></div></section>
 <section class="alt" id="register"><div class="wrap split" style="align-items:start">
 <div><form class="f" id="evForm" data-store="eventRegs" data-prefix="EVR" novalidate><h3>Event registration</h3>
 <div class="field"><label for="evSel">Event</label><select id="evSel" name="event" required><option value="">Select...</option></select><div class="err">Please choose an event.</div></div>
-<div class="fr c2"><div class="field"><label for="f-name-1845">Full name (as it should appear on your certificate)</label><input id="f-name-1845" name="name" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-phone-4618">Phone number</label><input id="f-phone-4618" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div></div>
-<div class="fr c2"><div class="field"><label for="f-email-5337">Email <span class="opt">(optional)</span></label><input id="f-email-5337" name="email" type="email"><div class="err">Enter a valid email address.</div></div><div class="field"><label for="f-memberNo-9758">Membership number <span class="opt">(optional)</span></label><input id="f-memberNo-9758" name="memberNo" type="text"><div class="err">This field is required.</div></div></div>
-<div class="field"><label for="f-role-93">I am a</label><select id="f-role-93" name="role" required><option value="">Select...</option><option>Farmer</option><option>Student</option><option>Business owner</option><option>Family member</option><option>Investor</option><option>Other</option></select><div class="err">Please choose an option.</div></div>
+<div class="fr c2"><div class="field"><label for="f-name-8039">Full name (as it should appear on your certificate)</label><input id="f-name-8039" name="name" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-phone-8528">Phone number</label><input id="f-phone-8528" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div></div>
+<div class="fr c2"><div class="field"><label for="f-email-6882">Email <span class="opt">(optional)</span></label><input id="f-email-6882" name="email" type="email"><div class="err">Enter a valid email address.</div></div><div class="field"><label for="f-memberNo-6685">Membership number <span class="opt">(optional)</span></label><input id="f-memberNo-6685" name="memberNo" type="text"><div class="err">This field is required.</div></div></div>
+<div class="field"><label for="f-role-4921">I am a</label><select id="f-role-4921" name="role" required><option value="">Select...</option><option>Farmer</option><option>Student</option><option>Business owner</option><option>Family member</option><option>Investor</option><option>Other</option></select><div class="err">Please choose an option.</div></div>
 <button class="btn" type="submit">Register for event</button></form><div class="confirm" id="evDone"></div></div>
-<div class="card aside"><span class="kicker">After the event</span><h3>Attendance certificate</h3><p>After the event, our team marks attendance. You can then generate your certificate here with your registration reference.</p>
+<div class="card"><h3>Attendance certificate</h3><p>After the event, our team marks attendance. You can then generate your certificate here with your registration reference.</p>
 <form id="certForm" novalidate><div class="field"><label for="certRef">Registration reference</label><input id="certRef" required placeholder="EVR-XXXXXX"><div class="err">Enter your registration reference.</div></div><button class="btn gold">Get my certificate</button></form>
 <div id="certMsg" style="margin-top:12px"></div></div>
 </div><div class="wrap"><div id="evCert" style="margin-top:18px"></div></div></section>
@@ -36,7 +31,7 @@
 <script>
 (function(){var esc=FTT.esc,S=FTT.S,E=FTT.SEED.events;
 function fmt(d){return new Date(d).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"long",year:"numeric"})}
-document.getElementById("evList").innerHTML=E.map(function(e){var d=new Date(e.date);return '<li class="act"><div class="ev-date"><b>'+d.getDate()+'</b><span>'+d.toLocaleDateString("en-GB",{month:"short"})+'</span></div><div><span class="tag">'+esc(e.type)+'</span><h4>'+esc(e.title)+'</h4><div class="meta">'+fmt(e.date)+' . '+esc(e.venue)+'</div></div><button class="btn sm line" data-ev="'+e.id+'">Register</button></li>'}).join("");
+document.getElementById("evList").innerHTML=E.map(function(e){return '<div class="card listing"><span class="tag">'+esc(e.type)+'</span><h3 style="margin:4px 0 0">'+esc(e.title)+'</h3><div class="muted">'+fmt(e.date)+' . '+esc(e.venue)+'</div><button class="btn sm" data-ev="'+e.id+'">Register</button></div>'}).join("");
 var sel=document.getElementById("evSel");sel.innerHTML+=E.map(function(e){return '<option value="'+e.id+'">'+esc(e.title)+' ('+fmt(e.date)+')</option>'}).join("");
 document.getElementById("evList").onclick=function(e){var b=e.target.closest("[data-ev]");if(!b)return;sel.value=b.dataset.ev;document.getElementById("register").scrollIntoView({behavior:"smooth"})};
 FTT.hooks.evForm={before:function(r){var ev=E.filter(function(x){return x.id===r.event})[0];r.eventTitle=ev.title;r.eventDate=ev.date;r.attended=false},
