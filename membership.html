@@ -5,42 +5,46 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Membership Portal | Farmers & Trustees Trust</title>
 <meta name="description" content="Register as a member of Farmers & Trustees Trust and receive your membership number and certificate.">
-<meta name="theme-color" content="#1f5c3a">
-<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0F3D2E">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <main id="main">
-<div class="page-head"><div class="wrap"><span class="kicker">Membership portal</span><h1>Become a member</h1><p>Register online in a few minutes. You will receive a membership number straight away, and you can download your membership certificate.</p></div></div>
+<div class="page-head"><div class="wrap"><span class="kicker">Membership portal</span><h1>Become a member of the Trust</h1><p>Register online in a few minutes. You will receive a membership number straight away, and you can download your membership certificate.</p></div></div>
 <section><div class="wrap">
-<h2>Membership categories</h2>
-<div class="grid g3">
-<div class="card"><h3>Student Member</h3><p>For learners at school, college or university. Access to internships, attachments and training.</p><span class="tag gold">Fee to be confirmed</span></div>
-<div class="card"><h3>Farmer Member</h3><p>For small, medium and commercial farmers. Market access, advisory and succession planning.</p><span class="tag gold">Fee to be confirmed</span></div>
-<div class="card"><h3>Ordinary Member</h3><p>For individuals and families who want to use the Trust's services.</p><span class="tag gold">Fee to be confirmed</span></div>
-<div class="card"><h3>Associate Member</h3><p>For professionals and partners who support the Trust's work.</p><span class="tag gold">Fee to be confirmed</span></div>
-<div class="card"><h3>Corporate Member</h3><p>For companies, cooperatives and organisations, including employers and buyers.</p><span class="tag gold">Fee to be confirmed</span></div>
-<div class="card"><h3>Honorary Member</h3><p>Awarded by the Trust to people who have made a notable contribution. By invitation.</p><span class="tag">By invitation</span></div>
+<div class="sec-head split2"><div><span class="kicker">Membership categories</span><h2>Choose the category that fits you</h2></div><p class="lead">Every category gives access to the Trust's services. Fees for each category will be confirmed by the Trust before launch.</p></div>
+<div class="tiers">
+<div class="tier"><h3>Student Member</h3><p class="for">For learners at school, college or university.</p><ul><li>Internships and attachments</li><li>CV and interview training</li><li>Student events</li></ul><div class="fee">Annual fee <b>To be confirmed</b></div></div>
+<div class="tier feat"><span class="flag">Core category</span><h3>Farmer Member</h3><p class="for">For small, medium and commercial farmers.</p><ul><li>Produce listings and buyer links</li><li>Farm advisory services</li><li>Farm succession planning</li></ul><div class="fee">Annual fee <b>To be confirmed</b></div></div>
+<div class="tier"><h3>Ordinary Member</h3><p class="for">For individuals and families who want to use the Trust's services.</p><ul><li>Estate planning support</li><li>Training and clinics</li><li>Member dashboard</li></ul><div class="fee">Annual fee <b>To be confirmed</b></div></div>
+<div class="tier"><h3>Associate Member</h3><p class="for">For professionals and partners who support the Trust's work.</p><ul><li>Partner listings</li><li>Speaking at clinics and workshops</li><li>Network events</li></ul><div class="fee">Annual fee <b>To be confirmed</b></div></div>
+<div class="tier"><h3>Corporate Member</h3><p class="for">For companies, cooperatives and organisations, including employers and buyers.</p><ul><li>Post vacancies on TalentLink</li><li>Buyer registration</li><li>Staff training sessions</li></ul><div class="fee">Annual fee <b>To be confirmed</b></div></div>
+<div class="tier"><h3>Honorary Member</h3><p class="for">Awarded by the Trust to people who have made a notable contribution.</p><ul><li>Recognised at Trust events</li><li>Advisory role where agreed</li></ul><div class="fee">Membership <b>By invitation</b></div></div>
 </div></div></section>
-<section class="alt" id="register"><div class="wrap">
+<section class="alt" id="register"><div class="wrap"><div class="sec-head" style="margin-bottom:var(--s3)"><span class="kicker">Membership portal</span><h2>Register or open your dashboard</h2></div>
 <div class="tabs"><button data-tab="reg" class="on">Register</button><button data-tab="dash">Member dashboard</button></div>
 <div class="panel on" id="reg">
-<div class="split" style="align-items:start">
+<div class="split wide-l" style="align-items:start">
 <div>
 <form class="f" id="memberForm" data-store="members" data-confirm="#memberDone" novalidate>
 <h3>Online registration form</h3>
-<div class="field"><label for="f-category-7009">Membership category</label><select id="f-category-7009" name="category" required><option value="">Select...</option><option>Student Member</option><option>Farmer Member</option><option>Ordinary Member</option><option>Associate Member</option><option>Corporate Member</option><option>Honorary Member</option></select><div class="err">Please choose an option.</div></div>
-<div class="fr c2"><div class="field"><label for="f-fullName-9713">Full name (or organisation name)</label><input id="f-fullName-9713" name="fullName" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-nrc-5384">NRC or registration number <span class="opt">(optional)</span></label><input id="f-nrc-5384" name="nrc" type="text"><div class="err">This field is required.</div></div></div>
-<div class="fr c2"><div class="field"><label for="f-phone-2978">Phone number</label><input id="f-phone-2978" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div><div class="field"><label for="f-email-1427">Email address <span class="opt">(optional)</span></label><input id="f-email-1427" name="email" type="email"><div class="err">Enter a valid email address.</div></div></div>
-<div class="fr c2"><div class="field"><label for="f-province-5320">Province</label><select id="f-province-5320" name="province" required><option value="">Select...</option><option>Lusaka</option><option>Central</option><option>Copperbelt</option><option>Eastern</option><option>Luapula</option><option>Muchinga</option><option>Northern</option><option>North-Western</option><option>Southern</option><option>Western</option></select><div class="err">Please choose an option.</div></div><div class="field"><label for="f-district-546">District or town</label><input id="f-district-546" name="district" type="text" required><div class="err">This field is required.</div></div></div>
-<div class="field"><label for="f-dob-2698">Date of birth <span class="opt">(optional)</span></label><input id="f-dob-2698" name="dob" type="date"><div class="err">Choose a date.</div></div>
-<div class="field"><label for="f-interest-1734">What do you hope to get from membership? <span class="opt">(optional)</span></label><textarea id="f-interest-1734" name="interest"></textarea><div class="err">This field is required.</div></div>
-<div class="field"><label class="check"><input type="checkbox" name="consent" required> I agree that the Trust may store my details to provide membership services.</label><div class="err">Please tick to continue.</div></div>
+<fieldset><legend><i>1</i>Category</legend><div class="field"><label for="f-category-5024">Membership category</label><select id="f-category-5024" name="category" required><option value="">Select...</option><option>Student Member</option><option>Farmer Member</option><option>Ordinary Member</option><option>Associate Member</option><option>Corporate Member</option><option>Honorary Member</option></select><div class="err">Please choose an option.</div></div></fieldset>
+<fieldset><legend><i>2</i>Your details</legend><div class="fr c2"><div class="field"><label for="f-fullName-1781">Full name (or organisation name)</label><input id="f-fullName-1781" name="fullName" type="text" required><div class="err">This field is required.</div></div><div class="field"><label for="f-nrc-3008">NRC or registration number <span class="opt">(optional)</span></label><input id="f-nrc-3008" name="nrc" type="text"><div class="err">This field is required.</div></div></div>
+<div class="fr c2"><div class="field"><label for="f-phone-6224">Phone number</label><input id="f-phone-6224" name="phone" type="tel" inputmode="tel" data-phone="1" autocomplete="tel" required><div class="err">Enter a valid Zambian phone number, e.g. 0971234567.</div></div><div class="field"><label for="f-email-7304">Email address <span class="opt">(optional)</span></label><input id="f-email-7304" name="email" type="email"><div class="err">Enter a valid email address.</div></div></div><div class="field"><label for="f-dob-6571">Date of birth <span class="opt">(optional)</span></label><input id="f-dob-6571" name="dob" type="date"><div class="err">Choose a date.</div></div></fieldset>
+<fieldset><legend><i>3</i>Location</legend><div class="fr c2"><div class="field"><label for="f-province-5829">Province</label><select id="f-province-5829" name="province" required><option value="">Select...</option><option>Lusaka</option><option>Central</option><option>Copperbelt</option><option>Eastern</option><option>Luapula</option><option>Muchinga</option><option>Northern</option><option>North-Western</option><option>Southern</option><option>Western</option></select><div class="err">Please choose an option.</div></div><div class="field"><label for="f-district-9654">District or town</label><input id="f-district-9654" name="district" type="text" required><div class="err">This field is required.</div></div></div></fieldset>
+<fieldset><legend><i>4</i>Your interests</legend><div class="field"><label for="f-interest-6008">What do you hope to get from membership? <span class="opt">(optional)</span></label><textarea id="f-interest-6008" name="interest"></textarea><div class="err">This field is required.</div></div>
+<div class="field"><label class="check"><input type="checkbox" name="consent" required> I agree that the Trust may store my details to provide membership services.</label><div class="err">Please tick to continue.</div></div></fieldset>
 <button class="btn" type="submit">Submit registration</button>
 </form>
 <div class="confirm" id="memberDone" aria-live="polite"></div>
 </div>
-<div class="card"><h3>What happens next</h3><ul class="ticks"><li>You get a membership number like <b>FTT-2026-000123</b>.</li><li>Your dashboard shows your details and status.</li><li>You can download or print your membership certificate.</li><li>Our team confirms your membership and fee payment by phone.</li></ul>
+<div class="card aside"><span class="kicker">After you register</span><h3>What happens next</h3><ul class="ticks"><li>You get a membership number like <b>FTT-2026-000123</b>.</li><li>Your dashboard shows your details and status.</li><li>You can download or print your membership certificate.</li><li>Our team confirms your membership and fee payment by phone.</li></ul>
 <p class="note">Demo version: details are saved only in this browser. Fees per category will be confirmed by the Trust.</p></div>
 </div></div>
 <div class="panel" id="dash">

@@ -50,7 +50,16 @@ Prepared by Teen Tech Technology, Lusaka.
 10. Physical office address for the map (currently shows Lusaka city)
 
 ## Photo credits
-Free images from Unsplash (unsplash.com, Unsplash License), resized and stored in `assets/img/`. Replace with the Trust's own photos before launch.
+Resized copies are stored in `assets/img/`. Replace with the Trust's own photos before launch.
+- Unsplash (Unsplash License): family.jpg, talent.jpg, enterprise.jpg, about.jpg, community.jpg, rural-road.jpg
+- Wikimedia Commons:
+  - hero.jpg: "Banana farmers of Chiawa, Zambia", KambiloMusopelo, CC BY-SA 4.0
+  - market.jpg: "Market (5268484861)", SuSanA Secretariat, CC BY 2.0
+  - training.jpg: "NAIS farmer Group Kasama Crossroads (2)", IICD, CC BY 2.0
+  - field.jpg: "Conservation farming 02", 13tainonge, CC BY-SA 4.0
+
+## Design
+Fonts: Fraunces (headings) and Inter (body) from Google Fonts. Colours: forest #0F3D2E, gold #C9A227, cream #F7F4EC. Icons are inline SVG line icons in `assets/js/app.js`.
 
 ## Run locally
 `python3 -m http.server 8471` inside this folder, then open http://localhost:8471/

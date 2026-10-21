@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" role="img" aria-label="Farmers &amp; Trustees Trust">
+<path d="M24 1.5 46 8.6v17.6c0 13.6-9.3 23.6-22 28.3C11.3 49.8 2 39.8 2 26.2V8.6Z" fill="#0F3D2E"/>
+<path d="M24 5.6 42 11.4v14.8c0 11.3-7.6 19.8-18 24-10.4-4.2-18-12.7-18-24V11.4Z" fill="none" stroke="#C9A227" stroke-width="1.1"/>
+<g fill="none" stroke="#C9A227" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 43V17"/>
+<path d="M24 38c-4.5 0-7-2.6-7.4-6.6 4.3 0 7.4 2.4 7.4 6.6Zm0 0c4.5 0 7-2.6 7.4-6.6-4.3 0-7.4 2.4-7.4 6.6Z"/>
+<path d="M24 30.5c-4.2 0-6.6-2.5-7-6.2 4 0 7 2.3 7 6.2Zm0 0c4.2 0 6.6-2.5 7-6.2-4 0-7 2.3-7 6.2Z"/>
+<path d="M24 23.2c-3.6 0-5.6-2.1-6-5.3 3.4 0 6 2 6 5.3Zm0 0c3.6 0 5.6-2.1 6-5.3-3.4 0-6 2-6 5.3Z"/>
+<path d="M24 16.4c-1.6-1.6-1.6-4.1 0-6.2 1.6 2.1 1.6 4.6 0 6.2Z"/>
+</g></svg>
