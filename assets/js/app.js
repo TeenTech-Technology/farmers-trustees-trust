@@ -41,17 +41,18 @@ function ic(n,c){return '<svg class="ico'+(c?' '+c:'')+'" viewBox="0 0 24 24" ar
 var here=(location.pathname.split("/").pop()||"index.html");
 var waIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>';
 function header(){
-  var nav=PAGES.map(function(p){return '<a href="'+p[0]+'"'+(p[0]===here?' aria-current="page"':'')+'>'+p[1]+'</a>'}).join("");
+  var MAIN={"index.html":1,"about.html":1,"agriculture.html":1,"estate.html":1,"talentlink.html":1,"enterprise.html":1,"events.html":1,"contact.html":1};
+  var nav=PAGES.map(function(p){return '<a href="'+p[0]+'"'+(p[0]===here?' aria-current="page"':'')+(MAIN[p[0]]?'':' class="nav-extra"')+'>'+(p[0]==="events.html"?"Training":p[1])+'</a>'}).join("");
   return '<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="" width="40" height="40"><span><b>Farmers &amp; Trustees Trust</b><small>Agriculture . Family . Enterprise</small></span></a>'+
-  '<button class="nav-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button><nav class="main-nav" id="mainnav" aria-label="Main">'+nav+'</nav></div></header>';
+  '<nav class="main-nav" id="mainnav" aria-label="Main">'+nav+'</nav><div class="head-actions"><a class="pill line" href="membership.html#dash">Login</a><a class="pill" href="membership.html">Sign Up</a></div><button class="nav-toggle" aria-expanded="false" aria-controls="mainnav">Menu</button></div></header>';
 }
 function footer(){
   return '<footer class="site-footer"><div class="wrap"><div class="grid g4">'+
-  '<div><h3>Farmers &amp; Trustees Trust</h3><p>Agricultural support, family legacy planning, recruitment and enterprise development, from Lusaka.</p></div>'+
+  '<div><a class="brand foot-brand" href="index.html"><img src="assets/img/logo.svg" alt="" width="40" height="40"><span><b>Farmers &amp; Trustees Trust</b></span></a><p>Agricultural support, family legacy planning, recruitment and enterprise development, from Lusaka.</p></div>'+
   '<div><h3>Services</h3><ul><li><a href="agriculture.html">Agriculture &amp; Market Access</a></li><li><a href="estate.html">Estate Planning</a></li><li><a href="talentlink.html">TalentLink Recruitment</a></li><li><a href="enterprise.html">Enterprise &amp; Investment</a></li></ul></div>'+
   '<div><h3>Get involved</h3><ul><li><a href="membership.html">Become a Member</a></li><li><a href="events.html">Training &amp; Events</a></li><li><a href="resources.html">Resource Center</a></li><li><a href="roadmap.html">Future Phases</a></li><li><a href="admin.html">Staff login (demo)</a></li></ul></div>'+
   '<div><h3>Contact</h3><ul class="ilist"><li>'+ic('pin')+'Lusaka, Zambia</li><li>'+ic('phone')+'<a href="tel:+260975963056">0975 963 056</a></li><li>'+ic('mail')+'<a href="mailto:mgchipashi03@gmail.com">mgchipashi03@gmail.com</a></li><li>'+ic('inbox')+'<a href="https://wa.me/260975963056" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>'+
-  '</div><div class="foot-bottom">&copy; '+new Date().getFullYear()+' Farmers &amp; Trustees Trust. First-version demo website. Website by Teen Tech Technology, Lusaka.<br>Photos: Unsplash contributors; Wikimedia Commons: KambiloMusopelo (CC BY-SA 4.0), 13tainonge (CC BY-SA 4.0), SuSanA Secretariat (CC BY 2.0), IICD (CC BY 2.0).</div></div></footer>'+
+  '</div><div class="foot-bottom">&copy; '+new Date().getFullYear()+' Farmers &amp; Trustees Trust. First-version demo website. Website by Teen Tech Technology, Lusaka.<br>Photos: Unsplash contributors; Wikimedia Commons: KambiloMusopelo (CC BY-SA 4.0), 13tainonge (CC BY-SA 4.0), SuSanA Secretariat (CC BY 2.0), IICD (CC BY 2.0), Neil Palmer for CIAT (CC BY-SA 2.0, image mirrored).</div></div></footer>'+
   '<a class="wa-float" href="https://wa.me/'+WA+'" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">'+waIcon+'<span>WhatsApp us</span></a><div class="toast" role="status" aria-live="polite"></div>';
 }
 document.body.insertAdjacentHTML("afterbegin",header());
@@ -68,7 +69,7 @@ var PH={"about.html":["hero.jpg","Banana farmers of Chiawa, Zambia. Photo: Kambi
 "roadmap.html":["community.jpg","","A woman and children walking through a village"],
 "contact.html":["market.jpg","Market scene. Photo: SuSanA Secretariat, CC BY 2.0","Traders selling produce at a market"]};
 var phd=document.querySelector(".page-head"),ph=PH[here];
-if(phd&&ph){var w=phd.querySelector(".wrap");w.classList.add("ph-grid");w.innerHTML='<div class="ph-text"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> '+document.title.split("|")[0].trim().replace("&","&amp;")+'</nav>'+w.innerHTML+'</div><figure class="ph-img"><img src="assets/img/'+ph[0]+'" alt="'+ph[2]+'" width="1000" height="667">'+(ph[1]?'<figcaption>'+ph[1]+'</figcaption>':'')+'</figure>';phd.classList.add("has-photo");if(here==="agriculture.html"||here==="membership.html")phd.classList.add("pos-top")}
+if(phd&&ph){var w=phd.querySelector(".wrap");w.innerHTML='<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> '+document.title.split("|")[0].trim().replace("&","&amp;")+'</nav>'+w.innerHTML;phd.insertAdjacentHTML("afterbegin",'<img class="ph-bg" src="assets/img/'+ph[0]+'" alt="'+ph[2]+'" width="1000" height="667">'+(ph[1]?'<span class="ph-credit">'+ph[1]+'</span>':''));phd.classList.add("has-photo");if(here==="agriculture.html"||here==="membership.html")phd.classList.add("pos-top")}
 var tg=document.querySelector(".nav-toggle"),nv=document.getElementById("mainnav");
 tg.addEventListener("click",function(){var o=nv.classList.toggle("open");tg.setAttribute("aria-expanded",o);tg.textContent=o?"Close":"Menu"});
 
