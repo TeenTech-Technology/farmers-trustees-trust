@@ -20,7 +20,7 @@
 <div class="fr c2"><div class="field"><label for="f-email-6882">Email <span class="opt">(optional)</span></label><input id="f-email-6882" name="email" type="email"><div class="err">Enter a valid email address.</div></div><div class="field"><label for="f-memberNo-6685">Membership number <span class="opt">(optional)</span></label><input id="f-memberNo-6685" name="memberNo" type="text"><div class="err">This field is required.</div></div></div>
 <div class="field"><label for="f-role-4921">I am a</label><select id="f-role-4921" name="role" required><option value="">Select...</option><option>Farmer</option><option>Student</option><option>Business owner</option><option>Family member</option><option>Investor</option><option>Other</option></select><div class="err">Please choose an option.</div></div>
 <button class="btn" type="submit">Register for event</button></form><div class="confirm" id="evDone"></div></div>
-<div class="card"><h3>Attendance certificate</h3><p>After the event, our team marks attendance. You can then generate your certificate here with your registration reference.</p>
+<div class="card"><span class="ci"><i data-i="file"></i></span><h3>Attendance certificate</h3><p>After the event, our team marks attendance. You can then generate your certificate here with your registration reference.</p>
 <form id="certForm" novalidate><div class="field"><label for="certRef">Registration reference</label><input id="certRef" required placeholder="EVR-XXXXXX"><div class="err">Enter your registration reference.</div></div><button class="btn gold">Get my certificate</button></form>
 <div id="certMsg" style="margin-top:12px"></div></div>
 </div><div class="wrap"><div id="evCert" style="margin-top:18px"></div></div></section>
@@ -31,7 +31,7 @@
 <script>
 (function(){var esc=FTT.esc,S=FTT.S,E=FTT.SEED.events;
 function fmt(d){return new Date(d).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"long",year:"numeric"})}
-document.getElementById("evList").innerHTML=E.map(function(e){return '<div class="card listing"><span class="tag">'+esc(e.type)+'</span><h3 style="margin:4px 0 0">'+esc(e.title)+'</h3><div class="muted">'+fmt(e.date)+' . '+esc(e.venue)+'</div><button class="btn sm" data-ev="'+e.id+'">Register</button></div>'}).join("");
+document.getElementById("evList").innerHTML=E.map(function(e){return '<div class="card listing"><span class="tag">'+esc(e.type)+'</span><h3 style="margin:4px 0 0">'+esc(e.title)+'</h3><div class="meta-line">'+FTT.ic('calendar')+fmt(e.date)+'</div><div class="meta-line">'+FTT.ic('pin')+esc(e.venue)+'</div><button class="btn sm" data-ev="'+e.id+'">Register</button></div>'}).join("");
 var sel=document.getElementById("evSel");sel.innerHTML+=E.map(function(e){return '<option value="'+e.id+'">'+esc(e.title)+' ('+fmt(e.date)+')</option>'}).join("");
 document.getElementById("evList").onclick=function(e){var b=e.target.closest("[data-ev]");if(!b)return;sel.value=b.dataset.ev;document.getElementById("register").scrollIntoView({behavior:"smooth"})};
 FTT.hooks.evForm={before:function(r){var ev=E.filter(function(x){return x.id===r.event})[0];r.eventTitle=ev.title;r.eventDate=ev.date;r.attended=false},

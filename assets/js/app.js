@@ -2,6 +2,42 @@
 (function(){
 var PAGES=[["index.html","Home"],["about.html","About"],["membership.html","Membership"],["agriculture.html","Agriculture"],["estate.html","Estate Planning"],["talentlink.html","TalentLink"],["enterprise.html","Enterprise"],["events.html","Training & Events"],["resources.html","Resources"],["roadmap.html","Future Phases"],["contact.html","Contact"]];
 var WA="260975963056";
+var I={
+ sprout:'<path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11c0-4 3-6 7-6 0 4-3 6-7 6Z"/><path d="M12 13c0-3.3-2.5-5-6-5 0 3.3 2.5 5 6 5Z"/>',
+ shield:'<path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+ briefcase:'<rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M3 13h18"/>',
+ trend:'<path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ file:'<path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7Z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.5 5.2"/>',
+ id:'<rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.5 16c.5-1.6 1.8-2.4 3.5-2.4s3 .8 3.5 2.4M15 10h3M15 13h3"/>',
+ phone:'<path d="M5 4h3l1.5 4-2 1.3a11 11 0 0 0 5.2 5.2L14 12.5l4 1.5v3a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2Z"/>',
+ mail:'<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3 7 9 6 9-6"/>',
+ pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ down:'<path d="m6 9 6 6 6-6"/>',
+ menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>',
+ download:'<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+ chart:'<path d="M4 20V4M4 20h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/>',
+ home:'<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/>',
+ folder:'<path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/>',
+ inbox:'<path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5 5h14l2 8v6H3v-6Z"/>',
+ check:'<path d="m5 12 4.5 4.5L19 7"/>',
+ star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z"/>',
+ graduation:'<path d="M2 9l10-5 10 5-10 5Z"/><path d="M6 11v5c2 2 10 2 12 0v-5M22 9v6"/>',
+ building:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10 21v-3h4v3"/>',
+ handshake:'<path d="m11 17 2 2a1.5 1.5 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.5 1.5 0 0 0 2-2L15 11l-2 1-3-2-6 5"/><path d="M3 13l4-4 4 1 3-2 7 5"/>',
+ search:'<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>',
+ truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+ book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Z"/><path d="M4 19V5M8 7h7"/>',
+ heart:'<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10Z"/>',
+ leaf:'<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19 13 11"/>',
+ clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+ rocket:'<path d="M12 15c4-3 6.5-7 6.5-11.5C14 3.5 10 6 7 10Z"/><path d="M7 10H4l2.5-3.5H10M12 15v3l3.5-2.5V12M8.5 15.5 6 18"/><circle cx="14.5" cy="8.5" r="1.3"/>',
+ map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2Z"/><path d="M9 4v14M15 6v14"/>'};
+function ic(n,c){return '<svg class="ico'+(c?' '+c:'')+'" viewBox="0 0 24 24" aria-hidden="true">'+(I[n]||'')+'</svg>'}
+
 var here=(location.pathname.split("/").pop()||"index.html");
 var waIcon='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>';
 function header(){
@@ -13,13 +49,26 @@ function footer(){
   return '<footer class="site-footer"><div class="wrap"><div class="grid g4">'+
   '<div><h3>Farmers &amp; Trustees Trust</h3><p>Agricultural support, family legacy planning, recruitment and enterprise development, from Lusaka.</p></div>'+
   '<div><h3>Services</h3><ul><li><a href="agriculture.html">Agriculture &amp; Market Access</a></li><li><a href="estate.html">Estate Planning</a></li><li><a href="talentlink.html">TalentLink Recruitment</a></li><li><a href="enterprise.html">Enterprise &amp; Investment</a></li></ul></div>'+
-  '<div><h3>Get involved</h3><ul><li><a href="membership.html">Become a Member</a></li><li><a href="events.html">Training &amp; Events</a></li><li><a href="resources.html">Resource Center</a></li><li><a href="admin.html">Staff login (demo)</a></li></ul></div>'+
-  '<div><h3>Contact</h3><ul><li>Lusaka, Zambia</li><li><a href="tel:+260975963056">0975 963 056</a></li><li><a href="mailto:mgchipashi03@gmail.com">mgchipashi03@gmail.com</a></li></ul></div>'+
-  '</div><div class="foot-bottom">&copy; '+new Date().getFullYear()+' Farmers &amp; Trustees Trust. First-version demo website. Website by Teen Tech Technology, Lusaka.</div></div></footer>'+
+  '<div><h3>Get involved</h3><ul><li><a href="membership.html">Become a Member</a></li><li><a href="events.html">Training &amp; Events</a></li><li><a href="resources.html">Resource Center</a></li><li><a href="roadmap.html">Future Phases</a></li><li><a href="admin.html">Staff login (demo)</a></li></ul></div>'+
+  '<div><h3>Contact</h3><ul class="ilist"><li>'+ic('pin')+'Lusaka, Zambia</li><li>'+ic('phone')+'<a href="tel:+260975963056">0975 963 056</a></li><li>'+ic('mail')+'<a href="mailto:mgchipashi03@gmail.com">mgchipashi03@gmail.com</a></li><li>'+ic('inbox')+'<a href="https://wa.me/260975963056" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>'+
+  '</div><div class="foot-bottom">&copy; '+new Date().getFullYear()+' Farmers &amp; Trustees Trust. First-version demo website. Website by Teen Tech Technology, Lusaka.<br>Photos: Unsplash contributors; Wikimedia Commons: KambiloMusopelo (CC BY-SA 4.0), 13tainonge (CC BY-SA 4.0), SuSanA Secretariat (CC BY 2.0), IICD (CC BY 2.0).</div></div></footer>'+
   '<a class="wa-float" href="https://wa.me/'+WA+'" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">'+waIcon+'<span>WhatsApp us</span></a><div class="toast" role="status" aria-live="polite"></div>';
 }
 document.body.insertAdjacentHTML("afterbegin",header());
 document.body.insertAdjacentHTML("beforeend",footer());
+document.querySelectorAll("i[data-i]").forEach(function(n){n.outerHTML=ic(n.dataset.i,n.className)});
+var PH={"about.html":["hero.jpg","Banana farmers of Chiawa, Zambia. Photo: KambiloMusopelo, CC BY-SA 4.0","Farmers working among banana plants"],
+"membership.html":["about.jpg","","A smiling woman"],
+"agriculture.html":["field.jpg","Conservation farming. Photo: 13tainonge, CC BY-SA 4.0","A woman farmer standing in a prepared field"],
+"estate.html":["family.jpg","","Parents sitting with their young child"],
+"talentlink.html":["talent.jpg","","Two young professionals working at a computer"],
+"enterprise.html":["enterprise.jpg","","Three women discussing a business plan"],
+"events.html":["training.jpg","Farmer group meeting, Kasama. Photo: IICD, CC BY 2.0","A farmer group meeting outdoors"],
+"resources.html":["rural-road.jpg","","A farmer walking along a rural road"],
+"roadmap.html":["community.jpg","","A woman and children walking through a village"],
+"contact.html":["market.jpg","Market scene. Photo: SuSanA Secretariat, CC BY 2.0","Traders selling produce at a market"]};
+var phd=document.querySelector(".page-head"),ph=PH[here];
+if(phd&&ph){var w=phd.querySelector(".wrap");w.classList.add("ph-grid");w.innerHTML='<div class="ph-text"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span>/</span> '+document.title.split("|")[0].trim().replace("&","&amp;")+'</nav>'+w.innerHTML+'</div><figure class="ph-img"><img src="assets/img/'+ph[0]+'" alt="'+ph[2]+'" width="1000" height="667">'+(ph[1]?'<figcaption>'+ph[1]+'</figcaption>':'')+'</figure>';phd.classList.add("has-photo");if(here==="agriculture.html"||here==="membership.html")phd.classList.add("pos-top")}
 var tg=document.querySelector(".nav-toggle"),nv=document.getElementById("mainnav");
 tg.addEventListener("click",function(){var o=nv.classList.toggle("open");tg.setAttribute("aria-expanded",o);tg.textContent=o?"Close":"Menu"});
 
@@ -154,5 +203,5 @@ var SEED={
 };
 function withSeed(k){return (SEED[k]||[]).concat(S.all(k))}
 
-window.FTT={S:S,esc:esc,toast:toast,money:money,ref:ref,hooks:hooks,validate:validate,collect:collect,certificate:certificate,showCert:showCert,SEED:SEED,withSeed:withSeed,WA:WA};
+window.FTT={ic:ic,S:S,esc:esc,toast:toast,money:money,ref:ref,hooks:hooks,validate:validate,collect:collect,certificate:certificate,showCert:showCert,SEED:SEED,withSeed:withSeed,WA:WA};
 })();

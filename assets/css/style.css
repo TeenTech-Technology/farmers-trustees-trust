@@ -123,3 +123,53 @@ textarea{min-height:96px}
 .toast.on{display:block}
 iframe.map{width:100%;height:320px;border:0;border-radius:var(--r)}
 @media print{.site-header,.site-footer,.wa-float,.no-print{display:none!important}}
+
+/* ---- polish v1.1: icons, page header photos, tidy spacing ---- */
+.ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;vertical-align:-4px}
+.btn .ico{width:17px;height:17px;margin-right:6px;vertical-align:-3px}
+.btn .ico.after{margin:0 0 0 6px}
+.ci{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--green-l);color:var(--green);margin-bottom:12px}
+.ci .ico{width:21px;height:21px}
+.ci.gold{background:var(--gold-l);color:#8a6a10}
+.card.photo .in .ci{margin-top:-38px;background:#fff;border:2px solid var(--gold-l);position:relative}
+.card h3 .ico{color:var(--gold);margin-right:6px}
+.meta-line{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.92rem}
+.meta-line .ico{width:16px;height:16px;color:var(--green)}
+.ilist{list-style:none;padding:0;margin:0}
+.ilist li{display:flex;gap:10px;align-items:flex-start;padding:5px 0}
+.ilist .ico{width:18px;height:18px;margin-top:3px;color:var(--gold)}
+.site-footer .ilist .ico{color:var(--gold)}
+.tabs button .ico{width:16px;height:16px;margin-right:4px;vertical-align:-3px}
+/* section headings */
+.sec-head{margin-bottom:22px;max-width:760px}
+.sec-head h2{margin-bottom:.3em}
+.sec-head p{color:var(--muted);margin:0}
+section h2+.lead{margin-bottom:0}
+/* inner page header with photo, same pattern as home hero */
+.page-head.has-photo{padding:0;background:var(--green-d)}
+.ph-grid{display:grid}
+.ph-text{padding:28px 0 26px}
+.ph-img{margin:0 -18px;position:relative}
+.ph-img img{width:100%;height:220px;object-fit:cover}
+.ph-img figcaption{position:absolute;right:8px;bottom:6px;background:rgba(0,0,0,.45);color:#eee;font-size:.68rem;padding:2px 6px;border-radius:3px;max-width:90%}
+.crumbs{font-size:.82rem;color:#b9d0c0;margin-bottom:12px}
+.crumbs a{color:#fff;text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.crumbs span{margin:0 4px;color:#7fa58c}
+@media(min-width:860px){.ph-grid{grid-template-columns:1.15fr .85fr;align-items:stretch}.ph-text{padding:52px 40px 52px 0;align-self:center}.ph-img{margin:0}.ph-img img{height:100%;min-height:300px;max-height:380px}}
+/* tidy */
+.tabs{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
+.panel>h2:first-child{margin-top:0}
+.split>.card{align-self:start}
+.site-footer .grid{gap:28px}
+.site-footer h3{margin-bottom:10px}
+.foot-bottom{line-height:1.6;color:#a9bfb0}
+.card.listing .btn{align-self:flex-start;margin-top:6px}
+.doc-card{display:flex;flex-direction:column}
+.doc-card .btns{margin-top:auto;padding-top:10px}
+.hero .btn .ico{width:17px;height:17px}
+@media(min-width:1280px) and (max-width:1360px){.main-nav a{padding:6px 6px;font-size:.86rem}}
+.ph-img img{object-position:center 30%}
+.page-head.pos-top .ph-img img{object-position:center 8%}
+.lead+h3{margin-top:22px}
+.fr{align-items:end}
+@media(max-width:640px){.tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-left:-18px;margin-right:-18px;padding-left:18px;padding-right:18px}.tabs::-webkit-scrollbar{display:none}.tabs button{flex:none}}
